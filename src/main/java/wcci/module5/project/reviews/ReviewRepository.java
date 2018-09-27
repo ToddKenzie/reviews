@@ -13,8 +13,8 @@ public class ReviewRepository {
 	
 	
 	public ReviewRepository() {
-		Review rev1 = new Review(1L, "The Grizzled", "2-5");
-		Review rev2 = new Review(2L, "Black Orchestra", "1-5");
+		Review rev1 = new Review(1L, "The Grizzled", "2-5", "thegrizzed", "Cooperative", "30 minutes");
+		Review rev2 = new Review(2L, "Black Orchestra", "1-5", "black-orchestra", "Cooperative", "90 minutes");
 		
 		allReviews.put(rev1.getId(), rev1);
 		allReviews.put(rev2.getId(), rev2);

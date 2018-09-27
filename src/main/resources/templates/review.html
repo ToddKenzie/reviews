@@ -7,8 +7,12 @@
 <div th:each="review :${reviews}">
 <h1>Review for <span th:text="${review.name}">item</span></h1>
 
+<img th:src="@{'/images/' + ${review.image} + '.png'}">
+
 <ul>
 	<li>Number Of Players: <span th:text="${review.numPlayers}">unknown</span></li>
+	<li>Game Type: <span th:text="${review.gameMode}">unknown</span></li>
+	<li>Estimated Length of Play: <span th:text="${review.lengthOfPlay}">unknown</span></li>
 </ul>
 
 
