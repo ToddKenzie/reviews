@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
 	<title>Single Review</title>
 </head>
 <body>
+<div>
+	<a th:href="@{/show-reviews}">Return to Main Page</a>
+</div>
+
 <div th:each="review :${reviews}">
 <h1>Review for <span th:text="${review.name}">item</span></h1>
 
@@ -11,12 +16,17 @@
 
 <ul>
 	<li>Number Of Players: <span th:text="${review.numPlayers}">unknown</span></li>
-	<li>Game Type: <span th:text="${review.gameMode}">unknown</span></li>
 	<li>Estimated Length of Play: <span th:text="${review.lengthOfPlay}">unknown</span></li>
 </ul>
-
-
-<p><a th:href="@{/show-reviews}">Return to Main Page</a></p>
 </div>
+
+<div th:each="review :${reviews}">
+	<p>Tags</p>
+<ul class="buttons" th:each = "tag : ${review.gameTags}">
+	<button th:text="${tag}" disabled></button>
+</ul>
+</div>
+
+
 </body>
 </html>

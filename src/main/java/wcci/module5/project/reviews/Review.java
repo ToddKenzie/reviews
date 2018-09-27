@@ -1,21 +1,23 @@
 package wcci.module5.project.reviews;
 
+import java.util.Collection;
+
 public class Review {
 
 	private Long id;
 	private String name;
 	private String numPlayers;
 	private String image;
-	private String gameMode;
 	private String lengthOfPlay;
+	private Collection<String> gameTags;
 
-	public Review(long id, String name, String numPlayers, String image, String gameMode, String lengthOfPlay) {
+	public Review(long id, String name, String numPlayers, String image, String lengthOfPlay, Collection<String> gameTags) {
 		this.id = id;
 		this.name = name;
 		this.numPlayers = numPlayers;
 		this.image = image;
-		this.gameMode = gameMode;
 		this.lengthOfPlay = lengthOfPlay;
+		this.gameTags = gameTags;
 	}
 
 	public Long getId() {
@@ -34,12 +36,12 @@ public class Review {
 		return image;
 	}
 	
-	public String getGameMode() {
-		return gameMode;
-	}
-	
 	public String getLengthOfPlay() {
 		return lengthOfPlay;
+	}
+	
+	public Collection<String> getGameTags() {
+		return gameTags;
 	}
 
 }
