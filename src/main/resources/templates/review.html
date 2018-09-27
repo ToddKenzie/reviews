@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Single Review</title>
 </head>
 <body>
+<div th:each="review :${reviews}">
+<h1>Review for <span th:text="${review.name}">item</span></h1>
 
-<h1>Single Reviews</h1>
+<ul>
+	<li>Number Of Players: <span th:text="${review.numPlayers}">unknown</span></li>
+</ul>
+
+
+<p><a th:href="@{/show-reviews}">Return to Main Page</a></p>
+</div>
 </body>
 </html>

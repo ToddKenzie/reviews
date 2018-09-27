@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Reviews</title>
 </head>
 <body>
 <h1>Review Site</h1>
+
+<p>Here's a list of all reviews available to peruse</p>
+
+<ul>
+	<li th:each = "review : ${reviews}"><a th:href = "@{/review(id=${review.id})}"     th:text = "${review.name}"></a></li>
+</ul>
 
 </body>
 </html>

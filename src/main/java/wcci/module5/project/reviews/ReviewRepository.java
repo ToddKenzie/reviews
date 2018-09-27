@@ -9,8 +9,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ReviewRepository {
 
-	private Map<Long, Review> allReviews = new HashMap<>();;
+	private Map<Long, Review> allReviews = new HashMap<>();
+	
+	
+	public ReviewRepository() {
+		Review rev1 = new Review(1L, "The Grizzled", "2-5");
+		Review rev2 = new Review(2L, "Black Orchestra", "1-5");
+		
+		allReviews.put(rev1.getId(), rev1);
+		allReviews.put(rev2.getId(), rev2);
+		
+	}
 
+	//tester
 	public ReviewRepository(Review...reviews) {
 		for (Review review : reviews) {
 			allReviews.put(review.getId() ,review);
