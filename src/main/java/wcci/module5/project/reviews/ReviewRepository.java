@@ -2,6 +2,7 @@ package wcci.module5.project.reviews;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ public class ReviewRepository {
 		gameTags1.add("Strategy");
 		
 		
-		Review rev1 = new Review(1L, "The Grizzled", "2-5", "thegrizzed", "30 minutes", gameTags1);
+		Review rev1 = new Review(1L, "The Grizzled", "2-5", "thegrizzed", "30 minutes", new GregorianCalendar(2015, 9, 1),gameTags1);
 		allReviews.put(rev1.getId(), rev1);
 	
 		Collection<String> gameTags2 = new ArrayList<>();
@@ -31,7 +32,7 @@ public class ReviewRepository {
 		gameTags2.add("Strategy");
 		gameTags2.add("Single Player");
 		
-		Review rev2 = new Review(2L, "Black Orchestra", "1-5", "black-orchestra", "90 minutes", gameTags2);
+		Review rev2 = new Review(2L, "Black Orchestra", "1-5", "black-orchestra", "90 minutes", new GregorianCalendar(2016, 10, 1),gameTags2);
 		allReviews.put(rev2.getId(), rev2);
 		
 		
