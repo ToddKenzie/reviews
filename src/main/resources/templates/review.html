@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/review.css}">
 	<title>Single Review</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
 </head>
 <body>
 <div>
-	<a th:href="@{/show-reviews}">Return to Main Page</a>
+	<a class="link" th:href="@{/show-reviews}">Return to Main Page</a>
 </div>
 
 <div th:each="review :${reviews}">
 <h1>Review for <span th:text="${review.name}">item</span></h1>
 
-<img th:src="@{'/images/' + ${review.image} + '.png'}">
+<img th:src="@{'/images/' + ${review.id} + '.png'}" class="game-image">
 
 <ul>
 	<li>Number Of Players: <span th:text="${review.numPlayers}">unknown</span></li>
 	<li>Estimated Length of Play: <span th:text="${review.lengthOfPlay}">unknown</span></li>
 	<li>Released: <span th:text="${review.releaseDate}">unknown</span></li>
+	<li>Synopsis: <span th:text="${review.synopsis}">unknown</span></li>
 </ul>
+
+<p th:utext="${review.reviewText}">review information here</p>
+
 </div>
 
 <div th:each="review :${reviews}">
-	<p>Tags</p>
-<ul class="buttons" th:each = "tag : ${review.gameTags}">
+	<p class="tags">Tags</p>
+<ul th:each = "tag : ${review.gameTags}" class="buttons">
 	<button th:text="${tag}" disabled></button>
 </ul>
 </div>
 
+<div>
+	<a th:href="@{/show-reviews}" class="link">Return to Main Page</a>
+</div>
 
 </body>
 </html>
