@@ -2,15 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Reviews</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/allReviews.css}">
 </head>
 <body>
-<h1>Review Site</h1>
+<h1>BoardGame HotSite</h1>
 
-<p>Here's a list of all reviews available to peruse</p>
+<p>Welcome to the coolest site around: what you'll find may be profound</p>
 
+<hr>
+
+<p>Here's a list of reviews fit to peruse</p>
+
+<div class="list">
 <ul>
 	<li th:each = "review : ${reviews}"><a th:href = "@{/review(id=${review.id})}"     th:text = "${review.name}"></a></li>
 </ul>
+</div>
 
 </body>
 </html>

@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-	color: #7606f7;
+	color: #6604d8;
 	text-align: center;
 }
 
@@ -21,9 +21,22 @@ h1 {
 	display: inline;
 }
 
+button {
+	background-color: #3b8635; 
+    border: none;
+    color: white;
+    border-radius: 4px;
+  	padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
 .buttons {
 	display: inline-block; 
-	padding: 5px;
+	padding-inline-start: 5px;
 	margin: 5px 0;
 }
 
