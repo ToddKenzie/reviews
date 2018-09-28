@@ -13,9 +13,10 @@ public class Review {
 	private Calendar releaseDate;
 	private String synopsis;
 	private String reviewText;
+	private String weblink;
 	private Collection<String> gameTags;
 
-	public Review(long id, String name, String numPlayers, String lengthOfPlay, Calendar releaseDate, String synopsis, String reviewText, Collection<String> gameTags) {
+	public Review(long id, String name, String numPlayers, String lengthOfPlay, Calendar releaseDate, String synopsis, String reviewText, String weblink, Collection<String> gameTags) {
 		this.id = id;
 		this.name = name;
 		this.numPlayers = numPlayers;
@@ -23,6 +24,7 @@ public class Review {
 		this.releaseDate = releaseDate;
 		this.synopsis = synopsis;
 		this.reviewText = reviewText;
+		this.weblink = weblink;
 		this.gameTags = gameTags;
 	}
 
@@ -55,6 +57,10 @@ public class Review {
 		return reviewText;
 	}
 
+	public String getWeblink() {
+		return weblink;
+	}
+	
 	public Collection<String> getGameTags() {
 		return gameTags;
 	}

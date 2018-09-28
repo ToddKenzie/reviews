@@ -22,7 +22,10 @@
 	<li>Synopsis: <span th:text="${review.synopsis}">unknown</span></li>
 </ul>
 
+<h3>Review</h3>
 <p th:utext="${review.reviewText}">review information here</p>
+
+<h4>Link to the game: <a th:href="@{${review.weblink}}">here</a></h4>
 
 </div>
 
