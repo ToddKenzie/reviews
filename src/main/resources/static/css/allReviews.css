@@ -1,10 +1,16 @@
 body {
 	font-family: Raleway;
-	border: 3px solid #7606f7;
-    padding: 20px;
     margin-left: 10%;
     margin-right: 10%;
+    background-color: #eac9ff;
     text-align: center;
+}
+
+.main-container {
+	margin: 0;
+	border: 3px solid #7606f7;
+	padding: 20px;
+	background-color: #fdfdfd;
 }
 
 h1 {

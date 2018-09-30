@@ -6,23 +6,24 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/allReviews.css}">
 </head>
 <body>
-<h1>BoardGame HotSite</h1>
+	<div class="main-container">
+		<h1>BoardGame HotSite</h1>
 
-<p>Welcome to the coolest site around: what you'll find may be profound</p>
+		<p>Welcome to the coolest site around: what you'll find may be profound</p>
 
-<hr>
+		<hr>
 
-<p>Here's a list of reviews fit to peruse</p>
+		<p>Here's a list of reviews fit to peruse</p>
 
-<div class="list">
-<ul>
-	<li th:each = "review : ${reviews}"><a th:href = "@{/review(id=${review.id})}"     th:text = "${review.name}"></a></li>
-</ul>
-</div>
+		<div class="list">
+			<ul>
+				<li th:each = "review : ${reviews}"><a th:href = "@{/review(id=${review.id})}"     th:text = "${review.name}"></a></li>
+			</ul>
+		</div>
 
-<img src="/images/gameroom.jpg" class="main-image">
+		<img src="/images/gameroom.jpg" class="main-image">
 
-<p class="co">Copyright MopamusWrex Gaming 2018</p>
-
+		<p class="co">Copyright MopamusWrex Gaming 2018</p>
+	</div>
 </body>
 </html>

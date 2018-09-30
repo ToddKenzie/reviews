@@ -1,9 +1,15 @@
 body {
 	font-family: Raleway;
-	border: 3px solid #7606f7;
-    padding: 20px;
     margin-left: 10%;
     margin-right: 10%;
+    background-color: #eac9ff;
+}
+
+.main-container {
+	margin: 0;
+	border: 3px solid #7606f7;
+	padding: 20px;
+	background-color: #fdfdfd;
 }
 
 h1 {
@@ -11,12 +17,11 @@ h1 {
 	text-align: center;
 }
 
-h2 {
-	font-weight: 600;
-}
+
 
 .link {
 	float: right;
+	font-size: 12px;
 }
 
 .tags {
