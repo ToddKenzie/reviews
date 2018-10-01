@@ -38,6 +38,9 @@ public class ReviewControllerMockMvcTest {
 	@Mock
 	private Review review2;
 	
+	@Mock
+	private Expansion expansion;
+	
 	@Test
 	public void serverStatusForAllReviewsShouldBeOk() throws Exception {
 		mvc.perform(get("/show-reviews")).andExpect(status().isOk());
@@ -70,6 +73,22 @@ public class ReviewControllerMockMvcTest {
 	public void shouldPutSingleReviewIntoModel() throws Exception {
 		when(reviewRepo.findOne(1L)).thenReturn(review1);
 		mvc.perform(get("/review?id=1")).andExpect(model().attribute("reviews",  is(review1)));
+	}
+	
+	@Test
+	public void serverStatusForExpansionShouldBeOK() throws Exception {
+		mvc.perform(get("/expansion?id=1")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldRouteToExpansionSite() throws Exception {
+		mvc.perform(get("/expansion?id=1")).andExpect(view().name(is("expansion")));
+	}
+	
+	@Test
+	public void shouldPutSingleExpansionIntoModel() throws Exception {
+		when(reviewRepo.findOneExpansion(1L)).thenReturn(expansion);
+		mvc.perform(get("/expansion?id=1")).andExpect(model().attribute("reviews", is(expansion)));
 	}
 	
 

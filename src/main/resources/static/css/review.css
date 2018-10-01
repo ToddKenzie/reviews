@@ -17,8 +17,6 @@ h1 {
 	text-align: center;
 }
 
-
-
 .link {
 	float: right;
 	font-size: 12px;
@@ -49,7 +47,6 @@ button {
 	margin: 5px 0;
 }
 
-
 .game-image {
 	display: block;
 	width: 50%;
@@ -57,7 +54,6 @@ button {
 	max-width: 400px;
 	margin-left: auto;
 	margin-right: auto;
-
 }
 
 

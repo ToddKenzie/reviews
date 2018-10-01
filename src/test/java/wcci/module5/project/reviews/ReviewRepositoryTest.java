@@ -14,7 +14,8 @@ public class ReviewRepositoryTest {
 	Review review1 = new Review(reviewId, "", "", "", null, "", "", "", null);
 	
 	long reviewId2 = 2L;
-	Review review2 = new Review(reviewId2, "", "", "", null, "", "", "", null);
+	private Expansion expansion = new Expansion(reviewId2, "", "", "", "");
+	Review review2 = new Review(reviewId2, "", "", "", null, "", "", "", null, expansion);
 	
 	ReviewRepository underTest;
 	
@@ -30,6 +31,13 @@ public class ReviewRepositoryTest {
 		underTest = new ReviewRepository(review1, review2);
 		Collection<Review> reviews = underTest.findAll();
 		assertThat(reviews, containsInAnyOrder(review1, review2));
+	}
+	
+	@Test
+	public void shouldFindOneExpansion() {
+		underTest = new ReviewRepository(review1, review2);
+		Expansion check = underTest.findOneExpansion(reviewId2);
+		assertThat(check, is(expansion));
 	}
 	
 }

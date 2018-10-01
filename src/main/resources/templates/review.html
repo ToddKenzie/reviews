@@ -29,6 +29,8 @@
 
 			<h4>Link to the game: <a th:href="@{${review.weblink}}">here</a></h4>
 
+			<h4>Expansions available? : <a th:if="${review.expansion}" th:href="@{/expansion(id=${review.id})}">yes</a><span th:unless="${review.expansion}">no</span></h4>
+
 		</div>
 
 		<div th:each="review :${reviews}">

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 public class ReviewRepository {
 
 	private Map<Long, Review> allReviews = new HashMap<>();
+	private Map<Long, Expansion> allExpansions = new HashMap<>();
 
 	public ReviewRepository() {
 		createReview1();
@@ -27,17 +28,24 @@ public class ReviewRepository {
 	public ReviewRepository(Review... reviews) {
 		for (Review review : reviews) {
 			allReviews.put(review.getId(), review);
+			if (review.getExpansion() != null) {
+				allExpansions.put(review.getId(), review.getExpansion());
+			}
 		}
 	}
 
-	public Review findOne(long reviewId) {
-		return allReviews.get(reviewId);
+	public Review findOne(long id) {
+		return allReviews.get(id);
 	}
 
 	public Collection<Review> findAll() {
 		return allReviews.values();
 	}
 
+	public Expansion findOneExpansion(long id) {
+		return allExpansions.get(id);
+	}
+	
 	private void createReview1() {
 		long id = 1L;
 		String name = "Black Orchestra";
@@ -85,16 +93,23 @@ public class ReviewRepository {
 		gameTags.add("Deck-Builder");
 		gameTags.add("Ancient Europe");
 
+		String exName = "Concordia Salsa";
+		String exNumPlayers = "2-5";
+		String exSynopsis = "Salsa adds a new double sided board, a new \"wildcard\" resource, and a forum of upgrade cards to change the dynamics of the game.  There are also other boards that can be purchased separately to create new variants of the game.";
+		String exWeblink = "http://riograndegames.com/Game/1303-Concordia-Salsa";
+
+		Expansion expan = new Expansion(id, exName, exNumPlayers, exSynopsis, exWeblink);
 		Review rev = new Review(id, name, numPlayers, lengthOfPlay,
-				new GregorianCalendar(2013, 9, 1), synopsis, reviewText, weblink, gameTags);
+				new GregorianCalendar(2013, 9, 1), synopsis, reviewText, weblink, gameTags, expan);
 		allReviews.put(rev.getId(), rev);
+		allExpansions.put(expan.getId(), expan);
 	}
 	
 	
 	private void createReview3() {
 		long id = 3L;
 		String name = "Root";
-		String numPlayers = "2-4 (1-6 with expansion)";
+		String numPlayers = "2-4";
 		String lengthOfPlay = "60 - 90 minutes";
 
 		String synopsis = "Multiple factions are vying for control of the forest (or just reputation) in their own, unique way.";
@@ -111,16 +126,25 @@ public class ReviewRepository {
 		gameTags.add("Asymmetric");
 		gameTags.add("Cute Animals");
 		gameTags.add("Area Control");
+		
+		String exName = "Root: The Riverfolk Expansion";
+		String exNumPlayers = "1-6";
+		String exSynopsis = "Riverfolk add 2 new factions, an additional Vagabond, and an AI-played Cat faction to increase the opportunities, variants, players, and fun.";
+		String exWeblink = "https://leder-games.myshopify.com/products/root-the-riverfolk-expansion?variant=19417078726714";
+
+		Expansion expan = new Expansion(id, exName, exNumPlayers, exSynopsis, exWeblink);
+		
 
 		Review rev = new Review(id, name, numPlayers, lengthOfPlay,
-				new GregorianCalendar(2018, 7, 1), synopsis, reviewText, weblink, gameTags);
+				new GregorianCalendar(2018, 7, 1), synopsis, reviewText, weblink, gameTags, expan);
 		allReviews.put(rev.getId(), rev);
+		allExpansions.put(expan.getId(), expan);
 	}
 
 	private void createReview4() {
 		long id = 4L;
 		String name = "The Grizzled";
-		String numPlayers = "2-5";
+		String numPlayers = "3-5";
 		String lengthOfPlay = "30 minutes";
 		
 		String synopsis = "Playing as a group of WWI soldiers from France, your objective is not to win the war, just survive it.";
@@ -137,9 +161,18 @@ public class ReviewRepository {
 		gameTags.add("Card");
 		gameTags.add("Strategy");
 		
+		String exName = "The Grizzled: At Your Orders!";
+		String exNumPlayers = "1-5";
+		String exSynopsis = "At Your Orders! adds a task deck that you can modify the difficulty.  This expansion helps balance the game in ways due to the new mechanics introduced.  The expansion also adds a solo-play variant.";
+		String exWeblink = "https://www.coolstuffinc.com/p/225304";
+
+		Expansion expan = new Expansion(id, exName, exNumPlayers, exSynopsis, exWeblink);
+		
+		
 		Review rev = new Review(id, name, numPlayers, lengthOfPlay, new GregorianCalendar(2015, 9, 1),
-				synopsis, reviewText, weblink, gameTags);
+				synopsis, reviewText, weblink, gameTags, expan);
 		allReviews.put(rev.getId(), rev);
+		allExpansions.put(expan.getId(), expan);
 	}
 	
 	private void createReview5() {
@@ -194,4 +227,5 @@ public class ReviewRepository {
 				new GregorianCalendar(2018, 5, 1), synopsis, reviewText, weblink, gameTags);
 		allReviews.put(rev.getId(), rev);
 	}
+
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Expansion</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/expansion.css}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="main-container" th:each="expansion : ${reviews}">
+		<div class="links">
+			<a th:href="@{/review(id=${expansion.id})}">Return to Game Page</a>
+			<a class="right-link" th:href="@{/show-reviews}">Return to Main Page</a>
+		</div>
+		
+		<h1 th:text="${expansion.name}">Expansion Name</h1>
+
+		<img th:src="@{'/images/' + ${expansion.id} + 'xp.png'}" class="game-image">
+
+		<ul>
+				<li><i class="fas fa-users"></i> : <span th:text="${expansion.numPlayers}">unknown</span></li>
+				<li>Synopsis: <span th:text="${expansion.synopsis}">unknown</span></li>
+		</ul>
+
+		<h4>Link to expansion: <a th:href="@{${expansion.weblink}}">here</a></h4>
+
+		<div class="links">
+			<a th:href="@{/review(id=${expansion.id})}">Return to Game Page</a>
+			<a class="right-link" th:href="@{/show-reviews}">Return to Main Page</a>
+		</div>
+
+	</div>	
+</body>
+</html>

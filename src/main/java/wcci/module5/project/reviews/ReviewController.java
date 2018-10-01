@@ -24,5 +24,11 @@ public class ReviewController {
 		model.addAttribute("reviews", reviewRepo.findOne(id));
 		return "review";
 	}
-
+	
+	@RequestMapping("/expansion")
+	public String findOneExpansion(@RequestParam(value="id") Long id, Model model) {
+		model.addAttribute("reviews", reviewRepo.findOneExpansion(id));
+		return "expansion";
+	}
+ 
 }

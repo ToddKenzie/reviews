@@ -15,6 +15,7 @@ public class Review {
 	private String reviewText;
 	private String weblink;
 	private Collection<String> gameTags;
+	private Expansion expansion;
 
 	public Review(long id, String name, String numPlayers, String lengthOfPlay, Calendar releaseDate, String synopsis, String reviewText, String weblink, Collection<String> gameTags) {
 		this.id = id;
@@ -27,6 +28,12 @@ public class Review {
 		this.weblink = weblink;
 		this.gameTags = gameTags;
 	}
+	
+	public Review(long id, String name, String numPlayers, String lengthOfPlay, Calendar releaseDate, String synopsis, String reviewText, String weblink, Collection<String> gameTags, Expansion expansion) {
+		this(id, name, numPlayers,lengthOfPlay, releaseDate, synopsis, reviewText, weblink, gameTags);
+		this.expansion = expansion;
+	}
+	
 
 	public Long getId() {
 		return id;
@@ -63,6 +70,10 @@ public class Review {
 	
 	public Collection<String> getGameTags() {
 		return gameTags;
+	}
+
+	public Expansion getExpansion() {
+		return expansion;
 	}
 	
 }
