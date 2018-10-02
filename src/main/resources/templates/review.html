@@ -12,30 +12,30 @@
 			<a class="link" th:href="@{/show-reviews}">Return to Main Page</a>
 		</div>
 
-		<div th:each="review :${reviews}">
-			<h1>Review for <span th:text="${review.name}">item</span></h1>
+		<div>
+			<h1>Review for <span th:text="${reviews.name}">item</span></h1>
 
-			<img th:src="@{'/images/' + ${review.id} + '.png'}" class="game-image">
+			<img th:src="@{'/images/' + ${reviews.id} + '.png'}" class="game-image">
 
 			<ul>
-				<li><i class="fas fa-users"></i> : <span th:text="${review.numPlayers}">unknown</span></li>
-				<li><i class="fas fa-stopwatch"></i>   : <span th:text="${review.lengthOfPlay}">unknown</span></li>
-				<li>Released: <span th:text="${review.releaseDate}">unknown</span></li>
-				<li>Synopsis: <span th:text="${review.synopsis}">unknown</span></li>
+				<li><i class="fas fa-users"></i> : <span th:text="${reviews.numPlayers}">unknown</span></li>
+				<li><i class="fas fa-stopwatch"></i>   : <span th:text="${reviews.lengthOfPlay}">unknown</span></li>
+				<li>Released: <span th:text="${reviews.releaseDate}">unknown</span></li>
+				<li>Synopsis: <span th:text="${reviews.synopsis}">unknown</span></li>
 			</ul>
 
 			<h3>Review</h3>
-			<p th:utext="${review.reviewText}">review information here</p>
+			<p th:utext="${reviews.reviewText}">review information here</p>
 
-			<h4>Link to the game: <a th:href="@{${review.weblink}}">here</a></h4>
+			<h4>Link to the game: <a th:href="@{${reviews.weblink}}">here</a></h4>
 
-			<h4>Expansions available? : <a th:if="${review.expansion}" th:href="@{/expansion(id=${review.id})}">yes</a><span th:unless="${review.expansion}">no</span></h4>
+			<h4>Expansions available? : <a th:if="${reviews.expansion}" th:href="@{/expansion(id=${reviews.id})}">yes</a><span th:unless="${reviews.expansion}">no</span></h4>
 
 		</div>
 
-		<div th:each="review :${reviews}">
+		<div>
 			<p class="tags">Tags</p>
-			<ul th:each = "tag : ${review.gameTags}" class="buttons">
+			<ul th:each = "tag : ${reviews.gameTags}" class="buttons">
 				<button th:text="${tag}" disabled></button>
 			</ul>
 		</div>

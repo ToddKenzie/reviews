@@ -8,25 +8,25 @@
 </head>
 
 <body>
-	<div class="main-container" th:each="expansion : ${reviews}">
+	<div class="main-container">
 		<div class="links">
-			<a th:href="@{/review(id=${expansion.id})}">Return to Game Page</a>
+			<a th:href="@{/review(id=${reviews.id})}">Return to Game Page</a>
 			<a class="right-link" th:href="@{/show-reviews}">Return to Main Page</a>
 		</div>
 		
-		<h1 th:text="${expansion.name}">Expansion Name</h1>
+		<h1 th:text="${reviews.name}">Expansion Name</h1>
 
-		<img th:src="@{'/images/' + ${expansion.id} + 'xp.png'}" class="game-image">
+		<img th:src="@{'/images/' + ${reviews.id} + 'xp.png'}" class="game-image">
 
 		<ul>
-				<li><i class="fas fa-users"></i> : <span th:text="${expansion.numPlayers}">unknown</span></li>
-				<li>Synopsis: <span th:text="${expansion.synopsis}">unknown</span></li>
+				<li><i class="fas fa-users"></i> : <span th:text="${reviews.numPlayers}">unknown</span></li>
+				<li>Synopsis: <span th:text="${reviews.synopsis}">unknown</span></li>
 		</ul>
 
-		<h4>Link to expansion: <a th:href="@{${expansion.weblink}}">here</a></h4>
+		<h4>Link to expansion: <a th:href="@{${reviews.weblink}}">here</a></h4>
 
 		<div class="links">
-			<a th:href="@{/review(id=${expansion.id})}">Return to Game Page</a>
+			<a th:href="@{/review(id=${reviews.id})}">Return to Game Page</a>
 			<a class="right-link" th:href="@{/show-reviews}">Return to Main Page</a>
 		</div>
 
